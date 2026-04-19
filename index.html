@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA — Feel your day.</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">AURA</div>
+        <div class="lang-toggle">
+            <button id="lang-btn">EN | ES</button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="input-section">
+            <h1 class="hero-title" data-i18n="heroTitle">Feel your day. See your mood.</h1>
+            <textarea id="journal-input" data-i18n-placeholder="placeholder" placeholder="Tell me about your day... what happened? how did you feel?"></textarea>
+            <button id="analyze-btn" data-i18n="button">Analyze my day</button>
+            <div id="error-message" class="hidden"></div>
+        </section>
+
+        <section id="loading-section" class="hidden">
+            <div class="spinner"></div>
+            <p data-i18n="loading">Reading your emotions...</p>
+        </section>
+
+        <section id="result-section" class="hidden">
+            <div class="emotions-badges">
+                <div class="badge dominant" id="dominant-badge">
+                    <span class="emoji" id="dominant-emoji">✨</span>
+                    <span class="label" data-i18n="dominant">Dominant emotion</span>: <span id="dominant-value"></span>
+                </div>
+                <div class="badge secondary" id="secondary-badge">
+                    <span class="label" data-i18n="secondary">Secondary emotion</span>: <span id="secondary-value"></span>
+                </div>
+            </div>
+
+            <div class="card summary-card">
+                <h3 data-i18n="summary">Your day</h3>
+                <p id="summary-text"></p>
+            </div>
+
+            <div class="card message-card">
+                <h3 data-i18n="message">For you</h3>
+                <p id="message-text"></p>
+            </div>
+
+            <div class="controls">
+                <button id="music-btn" class="btn-secondary" data-i18n="musicOn">Pause music</button>
+                <button id="reset-btn" class="btn-primary" data-i18n="reset">Write a new day</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <script src="js/gemini.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
